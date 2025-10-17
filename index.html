@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>To-Do List</h1>
+            <p class="subtitle">Organize your tasks and stay productive</p>
+        </header>
+
+        <div class="notice">
+            <p><strong>Note:</strong> Tasks are stored in memory and will reset when you refresh the page.</p>
+        </div>
+
+        <section class="task-input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    class="form-control task-input" 
+                    placeholder="What needs to be done?" 
+                    maxlength="250"
+                    aria-label="New task description"
+                >
+                <button 
+                    type="button" 
+                    id="addTaskBtn" 
+                    class="btn btn--primary add-task-btn"
+                    aria-label="Add new task"
+                >
+                    <span class="btn-text">Add Task</span>
+                </button>
+            </div>
+            <div class="input-validation" id="inputError" role="alert" aria-live="polite"></div>
+        </section>
+
+        <section class="task-stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span class="stat-label">Remaining</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="task-list-section">
+            <div class="task-list-header">
+                <h2>Your Tasks</h2>
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </div>
+
+            <div class="task-list-container">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">📋</div>
+                    <h3>No tasks yet</h3>
+                    <p>Add your first task above to get started!</p>
+                </div>
+
+                <ul class="task-list" id="taskList" role="list">
+                    <!-- Tasks will be dynamically added here -->
+                </ul>
+            </div>
+
+            <div class="bulk-actions" id="bulkActions">
+                <button class="btn btn--outline btn--sm" id="clearCompleted">
+                    Clear Completed
+                </button>
+                <button class="btn btn--outline btn--sm" id="markAllComplete">
+                    Mark All Complete
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
